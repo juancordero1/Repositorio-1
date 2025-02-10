@@ -1,0 +1,84 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div id="contenido">
+				<h2>Personajes de Rick and Morty</h2>
+				<button id="button">Obtener personajes de la serie</button>
+			</div>
+			
+
+		</main>
+			
+		<script>
+			const Personajes = document.getElementById("contenido");
+			const apiURL = "https://rickandmortyapi.com/api/character";
+			const button = document.querySelector("#button");
+			button.addEventListener("click", () => {
+				const respuesta = async () =>{
+        		const resp = await fetch(apiURL);
+        		const data = await resp.json();
+        		return data;
+				}
+				
+				const obtencionPersonajes = async()  => {
+        		let personajes = await respuesta();
+        		console.log(personajes.results);
+
+        		personajes.results.forEach((personaje : any) => {
+            	//console.log(personaje.name);
+           	 	const contenedor = document.createElement('div')
+
+            	contenedor.innerHTML = `
+                <h4>${personaje.name}</h4>
+                <img src="${personaje.image}">
+            	`;
+            	Personajes.append(contenedor);
+        });
+    }
+	obtencionPersonajes();
+    })
+			
+		</script>
+
+		<style>
+			body {
+    		font-family: Arial, sans-serif;
+    		background-color: burlywood;
+			}
+
+			button {
+    		padding: 20px;
+    		width: 95%;
+    		background-color: rgb(218, 128, 63);
+    		color: darkolivegreen;
+    		font-size: medium;
+    		border: none;
+   			border-radius: 5px;
+    		cursor: pointer;
+    		margin: 5px;
+			}
+
+			h2 {
+    		text-align: center;
+			}		
+
+			h4 {
+    		text-align: center;
+			}
+		</style>
+
+		<Footer />
+	</body>
+</html>

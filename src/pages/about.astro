@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Diseño de muebles"
+	description="Lorem ipsum dolor sit amet"
+	pubDate={new Date('February 09 2025')}
+	heroImage="/mesita.jpg"
+>
+<body>
+    
+        <article>
+            <h2 id="titulo">Etapa De Diseño</h2>
+            <p>
+                En esta etapa se desarrolla de manera creativa el diseño <br>
+                del mobiliario solicitado por parte de las áreas de staff<br>
+                de la empresa para la exhibición de los artículos de venta.<br>
+            </p>
+            <h3>Actividades que se realizan en esta etapa</h3>
+            <ul>
+                <strong><li>Diseño</li></strong>
+                <strong><li>Renderizado</li></strong>
+                <strong><li>Presentaciones</li></strong>
+                <strong><li>Muestreo</li></strong>
+                <strong><li>Pase a línea</li></strong>
+            </ul>
+            <img src="/repisa.jpg" width="400"/>
+        </article>
+        <article>
+            <h2>Etapa de especificación</h2>
+            <p>
+                En esta etapa se desarrolla la ficha técnica de los muebles <br>
+                que se diseñaron en la etapa anterior procurando que todo<br>
+                quede claro para los fabricantes que realizaran los trabajos.
+            </p>
+            <h3>Actividades que se realizan en esta etapa</h3>
+            <ol>
+                <li>Especificación de materiales</li>
+                <li>Especificación de medidas</li>
+                <li>Exportación de PDF final</li>
+            </ol>
+            <img src="/lampara.jpg" width="400"/>
+        </article>
+    <br><br>
+        
+    <footer>
+        <a href="#titulo">Ir arriba</a><br>
+        <p>Copyright 2021</p>
+    </footer>
+</body>
+</Layout>
